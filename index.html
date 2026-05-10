@@ -1,165 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Krand | Personal Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Krand's personal website and portfolio." />
+    <meta name="theme-color" content="#4caf50" />
 
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0f0f0f;
+            --card: rgba(255, 255, 255, 0.06);
+            --primary: #4caf50;
+            --primary-hover: #43a047;
+            --text: #ffffff;
+            --muted: #bdbdbd;
+            --discord: #5865F2;
+            --discord-hover: #4752c4;
+        }
+
+        body {
             font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #0e0e0e, #1a1a1a);
-            color: #ffffff;
+            background:
+                radial-gradient(circle at top, #1f1f1f, #0b0b0b);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: auto;
             padding: 40px 20px;
+        }
+
+        .hero {
             text-align: center;
+            margin-bottom: 40px;
         }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
-            border: 4px solid #4caf50;
             object-fit: cover;
-            margin-bottom: 20px;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 25px rgba(76, 175, 80, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            color: #4caf50;
-            margin-top: 40px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        .box {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
             margin-top: 20px;
+            font-size: 38px;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 22px;
+            backdrop-filter: blur(8px);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(76, 175, 80, 0.4);
+        }
+
+        .card h2 {
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .card p,
+        .card li {
+            color: #e5e5e5;
+            font-size: 15px;
         }
 
         ul {
             list-style: none;
-            padding: 0;
         }
 
-        ul li {
-            padding: 6px 0;
+        li {
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.15);
+            color: #8cff92;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 40px;
         }
 
         .discord-btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 14px 28px;
-            background: #5865F2;
-            color: #ffffff;
+            padding: 14px 30px;
+            background: var(--discord);
+            color: white;
             text-decoration: none;
-            font-size: 18px;
             font-weight: bold;
-            border-radius: 10px;
+            border-radius: 12px;
             transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3);
         }
 
         .discord-btn:hover {
-            background: #4752c4;
+            background: var(--discord-hover);
             transform: scale(1.05);
         }
 
         footer {
+            text-align: center;
             margin-top: 50px;
+            color: var(--muted);
             font-size: 14px;
-            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <img class="profile-img"
-         src="https://cdn.discordapp.com/attachments/1140306715041071195/1457148433755537660/Krand.jpg?ex=695af2bb&is=6959a13b&hm=c8891aa52834aa054b9c15cfed7051db159fa9f7e3e037c3a67fcc68c760738b&"
-         alt="Profile Picture">
+        <section class="hero">
 
-    <h1>Hello, I'm Krand 👋</h1>
-    <p>
-        I made this website for personal use.
-        <br>
-        I'm a <strong>Grade 9 student</strong> and an <strong>ICT Club Officer with Robotics</strong>.
-    </p>
+            <img
+                class="profile-img"
+                src="https://cdn.discordapp.com/attachments/1140306715041071195/1457148433755537660/Krand.jpg"
+                alt="Krand Profile Picture"
+            >
 
-    <div class="box">
-        <h2>📌 About Me</h2>
-        <p>
-            I’m <strong>14 years old</strong> (turning <strong>15 on May 1</strong>) and passionate about
-            technology, programming, and problem-solving.
-        </p>
+            <h1>Hello, I'm Krand 👋</h1>
+
+            <p class="subtitle">
+                Grade 9 Student • ICT Club Officer • Robotics Enthusiast
+            </p>
+
+            <div class="badge">
+                💻 Lua Developer
+            </div>
+
+        </section>
+
+        <section class="grid">
+
+            <div class="card">
+                <h2>📌 About Me</h2>
+                <p>
+                    I'm passionate about technology, programming,
+                    robotics, and learning new things related to coding.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>💻 Languages</h2>
+                <ul>
+                    <li>Lua (Growtopia)</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript (Beginner)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Hobbies</h2>
+                <ul>
+                    <li>🎵 Listening to music while coding</li>
+                    <li>🏸 Playing badminton</li>
+                    <li>💻 Building scripts and websites</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>😤 Pet Peeve</h2>
+                <p>
+                    Debugging errors at 2AM and realizing
+                    the problem was just one missing symbol.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>🎮 Favorite Games</h2>
+                <ul>
+                    <li>Mobile Legends: Bang Bang</li>
+                    <li>Growtopia</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>📬 Communication</h2>
+                <p>
+                    Discord & Messenger
+                </p>
+            </div>
+
+        </section>
+
+        <div class="buttons">
+
+            <a
+                class="discord-btn"
+                href="https://discord.com/users/1140305320011386880"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🔵 Add Me on Discord
+            </a>
+
+        </div>
+
+        <footer>
+            © 2026 Krand • Personal Website
+        </footer>
+
     </div>
-
-    <div class="box">
-        <h2>💻 Programming Languages</h2>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li>Lua (Growtopia)</li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>🎯 Hobbies</h2>
-        <ul>
-            <li>Listening to music while coding</li>
-            <li>Playing badminton</li>
-            <li>Of course… coding 😄</li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>😤 Pet Peeve</h2>
-        <p>
-            When my code has an error and I need to fix it ASAP.
-        </p>
-    </div>
-
-    <div class="box">
-        <h2>🎮 Favorite Games</h2>
-        <ul>
-            <li>Mobile Legends: Bang Bang (MLBB)</li>
-            <li>Growtopia</li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>📬 Communication</h2>
-        <p>Discord & Messenger</p>
-    </div>
-
-    <a class="discord-btn"
-       href="https://discord.com/users/1140305320011386880"
-       target="_blank">
-        🔵 Add Me on Discord
-    </a>
-
-    <footer>
-        © 2026 • Krand Personal Website
-    </footer>
-
-</div>
 
 </body>
-
 </html>
